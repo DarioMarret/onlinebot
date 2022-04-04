@@ -175,7 +175,7 @@ export default function Home() {
           box-sizing: border-box;
         }
       `}</style>
-      <script src="https://chatbox.csml.dev/script.min.js?token=4cie3yd6euhy5qvvzgneuoua5w9mcrrk" id="clevy-chatbox" async></script> 
+      <script src="https://chatbox.csml.dev/script.min.js?token=s41fvi4mkgsaejzcjanuj7gvjbfgj0as" id="clevy-chatbox" async></script> 
     </div>
   )
 }
