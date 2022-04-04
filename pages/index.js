@@ -6,7 +6,7 @@ export default function Home() {
       <Head>
         <title>IntelnexoBot</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="facebook-domain-verification" content="c22pz6xxtnrgbyhfpg9knqxkoja8di" />
+        <meta name="facebook-domain-verification" content="re53pssz1yix7gw93hqijubcmgdwvi" />
       </Head>
 
       <main>
