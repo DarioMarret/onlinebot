@@ -61,9 +61,9 @@ export default function Home() {
         <h1 className="title">
           Prueba de Bot integracion Csml
         </h1>
-        <button onClick={() => ventanaSecundaria("https://facebook.com/v14.0/dialog/oauth?client_id:3176667395950990&scope=publishactions&response_type=token&redirect_uri=https://2180-45-187-2-162.ngrok.io/connect/verifica")}>
+        {/* <button onClick={() => ventanaSecundaria("https://facebook.com/v14.0/dialog/oauth?client_id:3176667395950990&scope=publishactions&response_type=token&redirect_uri=https://2180-45-187-2-162.ngrok.io/connect/verifica")}>
           Permiso
-        </button>
+        </button> */}
         <div id="fb-root">
           <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
         </div>
