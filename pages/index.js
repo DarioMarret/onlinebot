@@ -37,7 +37,7 @@ export default function Home() {
       } else {
         FB.login(function(response) {
           // handle the response
-        }, {scope: 'public_profile,email'});
+        }, {scope: 'public_profile,email,pages_messaging,'});
       }
     });
 
