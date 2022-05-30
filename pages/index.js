@@ -5,7 +5,7 @@ export default function Home() {
 
 
   const ventanaSecundaria = (URL) => {
-    window.open(URL, "ventana1", "width=120,height=300,scrollbars=NO")
+    window.open(URL, "ventana1", "width=400,height=500,scrollbars=NO")
   }
   useEffect(() => {
     (() => {
