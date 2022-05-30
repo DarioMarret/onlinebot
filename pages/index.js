@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 
 export default function Home() {
@@ -7,43 +7,6 @@ export default function Home() {
   const ventanaSecundaria = (URL) => {
     window.open(URL, "ventana1", "width=120,height=300,scrollbars=NO")
   }
-
-  // function statusChangeCallback(response) {
-  //   console.log('statusChangeCallback');
-  //   console.log(response);
-  //   if (response.status === 'connected') {
-  //     testAPI();
-  //   } else {
-  //     document.getElementById('status').innerHTML = 'Please log ' +
-  //       'into this app.';
-  //   }
-  // }
-
-  // function checkLoginState() {
-  //   FB.getLoginStatus(function (response) {
-  //     statusChangeCallback(response);
-  //   });
-  // }
-
-  // window.fbAsyncInit = function () {
-  //   FB.init({
-  //     appId: '{your-app-id}',
-  //     cookie: true,
-  //     xfbml: true,
-  //     version: 'v14.0'
-  //   });
-
-
-  //   FB.getLoginStatus(function (response) {
-  //     statusChangeCallback(response);
-  //   });
-
-  // };
-
-  // Load the SDK asynchronously
-
-
-
   useEffect(() => {
     (() => {
       FB.init({
@@ -55,14 +18,19 @@ export default function Home() {
       FB.AppEvents.logPageView();
     })
 
-    (function(d, s, id){
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {return;}
-      js = d.createElement(s); js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
 
+
+    FB.getLoginStatus(function (response) {
+      console.log(response)
+      // statusChangeCallback(response);
+    });
 
   }, []);
 
@@ -74,6 +42,7 @@ export default function Home() {
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <meta name="facebook-domain-verification" content="re53pssz1yix7gw93hqijubcmgdwvi" />
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v14.0&appId=3176667395950990&autoLogAppEvents=1" nonce="PGyk9SsQ"></script>
       </Head>
 
       <main>
@@ -83,9 +52,10 @@ export default function Home() {
         <button onClick={() => ventanaSecundaria("https://www.facebook.com/v14.0/dialog/oauth?app_id=3176667395950990&auth_type=reauthorize&link=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F&redirect_uri=https://developers.facebook.com/tools/explorer")}>
           Permiso
         </button>
-
-        <div id="status">
+        <div id="fb-root">
+        <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
         </div>
+
       </main>
       <footer>
         <a
