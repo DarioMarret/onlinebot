@@ -39,12 +39,12 @@ export default function Home() {
   }, []);
 
   /**
-   * https://developers.facebook.com/dialog/oauth?client_id:3176667395950990&scope=publishactions&response_type=token&redirect_uri=https://2180-45-187-2-162.ngrok.io/connect/inst-login
-   * https://developers.facebook.com/dialog/oauth?
+   * https://facebook.com/dialog/oauth?client_id:3176667395950990&scope=publishactions&response_type=token&redirect_uri=https://2180-45-187-2-162.ngrok.io/connect/verifica
+   * https://facebook.com/dialog/oauth?
    * client_id: 3176667395950990
    * &scope=publishactions
    * &response_type=token
-   * &redirect_uri=https://2180-45-187-2-162.ngrok.io/connect/inst-login
+   * &redirect_uri=https://2180-45-187-2-162.ngrok.io/connect/verifica
    */
   return (
     <div className="container">
@@ -61,7 +61,7 @@ export default function Home() {
         <h1 className="title">
           Prueba de Bot integracion Csml
         </h1>
-        <button onClick={() => ventanaSecundaria("https://facebook.com/v14.0/dialog/oauth?client_id:3176667395950990&scope=publishactions&response_type=token&redirect_uri=https://2180-45-187-2-162.ngrok.io/connect/inst-login")}>
+        <button onClick={() => ventanaSecundaria("https://facebook.com/v14.0/dialog/oauth?client_id:3176667395950990&scope=publishactions&response_type=token&redirect_uri=https://2180-45-187-2-162.ngrok.io/connect/verifica")}>
           Permiso
         </button>
         <div id="fb-root">
