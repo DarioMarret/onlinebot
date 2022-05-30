@@ -28,12 +28,24 @@ export default function Home() {
 
 
     FB.getLoginStatus(function (response) {
-      console.log(response)
-      // statusChangeCallback(response);
+      if (response.status === 'connected') {
+        console.log(response)
+        // statusChangeCallback(response);
+      } else {
+        console.log("no hay sesion de facebook")
+      }
     });
 
   }, []);
 
+  /**
+   * https://developers.facebook.com/dialog/oauth?client_id:3176667395950990&scope=publishactions&response_type=token&redirect_uri=https://2180-45-187-2-162.ngrok.io/connect/inst-login
+   * https://developers.facebook.com/dialog/oauth?
+   * client_id: 3176667395950990
+   * &scope=publishactions
+   * &response_type=token
+   * &redirect_uri=https://2180-45-187-2-162.ngrok.io/connect/inst-login
+   */
   return (
     <div className="container">
       <Head>
@@ -45,18 +57,26 @@ export default function Home() {
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v14.0&appId=3176667395950990&autoLogAppEvents=1" nonce="PGyk9SsQ"></script>
       </Head>
 
+          //&auth_type=reauthorize&cbt=1653931581324&channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df18a2b5732afeec%26domain%3Dstudio.csml.dev%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fstudio.csml.dev%252Ff35b8b4e5fcc474%26relation%3Dopener&client_id=177899270321819&display=popup&domain=studio.csml.dev&e2e=%7B%7D&fallback_redirect_uri=https%3A%2F%2Fstudio.csml.dev%2Fbots%2F53b3f0e4-c4db-4852-954b-154df69a356c%2Fchannels%2Fnew%2Fmessenger&locale=en_US&logger_id=f135c110442c668&origin=1&redirect_uri=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df3c82f47c578fa8%26domain%3Dstudio.csml.dev%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fstudio.csml.dev%252Ff35b8b4e5fcc474%26relation%3Dopener%26frame%3Df885976e2cf&response_type=token%2Csigned_request%2Cgraph_domain&scope=pages_messaging%2Cpages_manage_metadata%2Cpages_read_engagement&sdk=joey&version=v11.0
       <main>
         <h1 className="title">
           Prueba de Bot integracion Csml
         </h1>
-        <button onClick={() => ventanaSecundaria("https://www.facebook.com/v14.0/dialog/oauth?app_id=3176667395950990&auth_type=reauthorize&link=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F&redirect_uri=https://developers.facebook.com/tools/explorer")}>
+        <button onClick={() => ventanaSecundaria("https://developers.facebook.com/dialog/oauth?client_id:3176667395950990&scope=publishactions&response_type=token&redirect_uri=https://2180-45-187-2-162.ngrok.io/connect/inst-login")}>
           Permiso
         </button>
         <div id="fb-root">
-        <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+          <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
         </div>
 
       </main>
+
+      <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+      </fb:login-button>
+
+      <div id="status">
+      </div>
+
       <footer>
         <a
           href="https://intelnexo.com"
