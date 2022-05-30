@@ -30,9 +30,14 @@ export default function Home() {
     FB.getLoginStatus(function (response) {
       if (response.status === 'connected') {
         console.log(response)
+        FB.api('/me', function(response) {
+          console.log('Good to see you, ' + response.name + '.');
+        });
         // statusChangeCallback(response);
       } else {
-        console.log("no hay sesion de facebook")
+        FB.login(function(response) {
+          // handle the response
+        }, {scope: 'public_profile,email'});
       }
     });
 
