@@ -31,6 +31,7 @@ export default function Home() {
       if (response.status === 'connected') {
         console.log(response)
         FB.api('/me', function(response) {
+          console.log(response)
           console.log('Good to see you, ' + response.name + '.');
         });
         // statusChangeCallback(response);
@@ -44,7 +45,7 @@ export default function Home() {
   }, []);
 
   /**
-   * https://facebook.com/dialog/oauth?client_id:3176667395950990&scope=publishactions&response_type=token&redirect_uri=https://2180-45-187-2-162.ngrok.io/connect/verifica
+   * https://facebook.com/dialog/oauth?client_id:3176667395950990&scope=public_profile,email,pages_messaging&response_type=token&redirect_uri=https://2180-45-187-2-162.ngrok.io/connect/verifica
    * https://facebook.com/dialog/oauth?
    * client_id: 3176667395950990
    * &scope=publishactions
@@ -58,17 +59,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <meta name="facebook-domain-verification" content="re53pssz1yix7gw93hqijubcmgdwvi" />
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v14.0&appId=3176667395950990&autoLogAppEvents=1" nonce="PGyk9SsQ"></script>
       </Head>
 
       <main>
         <h1 className="title">
           Prueba de Bot integracion Csml
         </h1>
-        {/* <button onClick={() => ventanaSecundaria("https://facebook.com/v14.0/dialog/oauth?client_id:3176667395950990&scope=publishactions&response_type=token&redirect_uri=https://2180-45-187-2-162.ngrok.io/connect/verifica")}>
-          Permiso
-        </button> */}
         <div id="fb-root">
           <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
         </div>
@@ -88,6 +84,7 @@ export default function Home() {
           IntelnexoBot{' '}
           <img src="/vercel.svg" alt="Vercel" className="logo" />
         </a>
+
       </footer>
       <style jsx>{`
         .container {
@@ -234,6 +231,9 @@ export default function Home() {
           box-sizing: border-box;
         }
       `}</style>
+      
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v14.0&appId=3176667395950990&autoLogAppEvents=1" nonce="PGyk9SsQ"></script>
     </div>
   )
 }
