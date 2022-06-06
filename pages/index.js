@@ -29,16 +29,17 @@ export default function Home() {
 
     FB.getLoginStatus(function (response) {
       if (response.status === 'connected') {
-        console.log(response)
-        FB.api('/me', function(response) {
-          console.log(response)
+        // console.log(response.authResponse.accessToken);
+        let token = response.authResponse.accessToken;
+        FB.api('/me', function (response) {
+          console.log({...response, token});
           console.log('Good to see you, ' + response.name + '.');
         });
         // statusChangeCallback(response);
       } else {
-        FB.login(function(response) {
+        FB.login(function (response) {
           // handle the response
-        }, {scope: 'public_profile,email,pages_messaging,'});
+        }, { scope: 'public_profile,email,pages_messaging,pages_show_list' });
       }
     });
 
@@ -231,7 +232,7 @@ export default function Home() {
           box-sizing: border-box;
         }
       `}</style>
-      
+
       <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
       <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v14.0&appId=3176667395950990&autoLogAppEvents=1" nonce="PGyk9SsQ"></script>
     </div>
