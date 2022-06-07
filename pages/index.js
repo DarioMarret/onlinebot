@@ -3,10 +3,6 @@ import Head from 'next/head'
 
 export default function Home() {
 
-
-  const ventanaSecundaria = (URL) => {
-    window.open(URL, "ventana1", "width=400,height=500,scrollbars=NO")
-  }
   useEffect(() => {
     (() => {
       FB.init({
@@ -45,14 +41,6 @@ export default function Home() {
 
   }, []);
 
-  /**
-   * https://facebook.com/dialog/oauth?client_id:3176667395950990&scope=public_profile,email,pages_messaging&response_type=token&redirect_uri=https://2180-45-187-2-162.ngrok.io/connect/verifica
-   * https://facebook.com/dialog/oauth?
-   * client_id: 3176667395950990
-   * &scope=publishactions
-   * &response_type=token
-   * &redirect_uri=https://2180-45-187-2-162.ngrok.io/connect/verifica
-   */
   return (
     <div className="container">
       <Head>
@@ -64,7 +52,7 @@ export default function Home() {
 
       <main>
         <h1 className="title">
-          Prueba de Bot integracion Csml
+          Bot Integracion Xfiv
         </h1>
         <div id="fb-root">
           <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
@@ -82,7 +70,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          IntelnexoBot{' '}
+          XfivBot{' '}
           <img src="/vercel.svg" alt="Vercel" className="logo" />
         </a>
 
