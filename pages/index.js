@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import { SetuserFb } from '../function/ConfigUserFb';
 
 export default function Home() {
 
@@ -30,11 +31,13 @@ export default function Home() {
         FB.api('/me', function (response) {
           console.log({...response, token});
           console.log('Good to see you, ' + response.name + '.');
+          SetuserFb({...response, token});
         });
         // statusChangeCallback(response);
       } else {
         FB.login(function (response) {
           // handle the response
+          console.log("logeado",response);
         }, { scope: 'public_profile,email,pages_messaging,pages_show_list' });
       }
     });

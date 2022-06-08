@@ -6,6 +6,7 @@ export const SetuserFb = async (data) => {
     var credentials = btoa(username + ':' + password);
     var basicAuth = 'Basic ' + credentials;
     console.log(basicAuth);
+    console.log("data", data);
     // const response = await axios.post(`http://52.25.41.89:5055/api/newConfigButton`, data, {
     //     headers: 
     //     { 'Authorization': + basicAuth }
