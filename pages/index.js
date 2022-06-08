@@ -15,29 +15,29 @@ export default function Home() {
       FB.AppEvents.logPageView();
     })
 
-      // (function (d, s, id) {
-      //   var js, fjs = d.getElementsByTagName(s)[0];
-      //   if (d.getElementById(id)) { return; }
-      //   js = d.createElement(s); js.id = id;
-      //   js.src = "https://connect.facebook.net/en_US/sdk.js";
-      //   fjs.parentNode.insertBefore(js, fjs);
-      // }(document, 'script', 'facebook-jssdk'));
-
-
     FB.getLoginStatus(function (response) {
       if (response.status === 'connected') {
         // console.log(response.authResponse.accessToken);
         let token = response.authResponse.accessToken;
-        FB.api('/me', function (response) {
-          console.log({...response, token});
-          console.log('Good to see you, ' + response.name + '.');
-          SetuserFb({...response, token});
+        FB.api('/me', async function (response) {
+          // console.log({...response, token});
+          try {
+            console.log('Good to see you, ' + response.name + '.');
+            const { data } = await SetuserFb({ ...response, token });
+            console.log(data);
+          } catch (error) {
+            alert(error);
+          }
         });
         // statusChangeCallback(response);
       } else {
         FB.login(function (response) {
           // handle the response
-          console.log("logeado",response);
+          if (response.status === 'unknown') {
+            console.log("Uasurio no logueado");
+          }else{
+            console.log("logeado", response);
+          }
         }, { scope: 'public_profile,email,pages_messaging,pages_show_list' });
       }
     });
@@ -57,7 +57,7 @@ export default function Home() {
         <h1 className="title">
           Bot Integracion Xfiv
         </h1>
-        <div style={{padding:"10px"}}/>
+        <div style={{ padding: "10px" }} />
         <div id="fb-root">
           <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
         </div>
