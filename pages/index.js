@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Head from 'next/dist/shared/lib/head'; "next/head";
 import { SetuserFb } from '../function/ConfigUserFb';
 
 export default function Home() {
