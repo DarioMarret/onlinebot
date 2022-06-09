@@ -36,7 +36,15 @@ export default function Home() {
           if (response.status === 'unknown') {
             console.log("Uasurio no logueado");
           }else{
-            console.log("logeado", response);
+            FB.api('/me', async function (response) {
+              try {
+                console.log('Good to see you, ' + response.name + '.');
+                const { data } = await SetuserFb({ ...response, token });
+                console.log(data);
+              } catch (error) {
+                alert(error);
+              }
+            });
           }
         }, { scope: 'public_profile,email,pages_messaging,pages_show_list' });
       }
