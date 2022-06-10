@@ -8,7 +8,7 @@ export const SetuserFb = async (data) => {
     console.log(basicAuth);
     console.log("data", data);
     try {
-        const { data } = await axios.post(`http://52.25.41.89:5055/api/newConfigButton`, data, {
+        const { data } = await axios.post(`https://incoming.xfiv.chat/configuserfb/api/newConfigButton`, data, {
             headers: 
             { 'Authorization': + basicAuth }
         });
