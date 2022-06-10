@@ -2,16 +2,20 @@ import axios from "axios";
 
 export const SetuserFb = async (data) => {
 
-    var basicAuth = 'Basic dXNlcjE6cGFzczE=';
-    console.log(basicAuth);
-    console.log("data", data);
+    var config = {
+        method: 'post',
+        url: 'https://incoming.xfiv.chat/configuserfb/api/newConfigButton',
+        headers: { 
+          'Authorization': 'Basic dXNlcjE6cGFzczE=', 
+          'Content-Type': 'application/json'
+        },
+        data : data
+      };
+
     try {
-        const { data } = await axios.post(`https://incoming.xfiv.chat/configuserfb/api/newConfigButton`, data, {
-            headers: 
-            { 'Authorization': + basicAuth }
-        });
+        const { data } = await axios(config)
         return data;
     } catch (error) {
-        return error        
+        return error
     }
 }
