@@ -1,10 +1,8 @@
 import axios from "axios";
 
 export const SetuserFb = async (data) => {
-    var username = 'user1';
-    var password = 'pass1';
-    var credentials = btoa(username + ':' + password);
-    var basicAuth = 'Basic ' + credentials;
+
+    var basicAuth = 'Basic dXNlcjE6cGFzczE=';
     console.log(basicAuth);
     console.log("data", data);
     try {
