@@ -1,74 +1,39 @@
-import React, { useEffect } from 'react'
-import Head from 'next/dist/shared/lib/head'; "next/head";
+import React, { useState, useEffect } from 'react';
+import { Modal, useModal, Button, Text, Input, Row, Checkbox } from "@nextui-org/react";
+
 import { SetuserFb } from '../function/ConfigUserFb';
+import FacebookAuth from 'react-facebook-auth';
 
 export default function Home() {
 
-  useEffect(() => {
-    (() => {
-      FB.init({
-        appId: '3176667395950990',
-        autoLogAppEvents: true,
-        xfbml: true,
-        version: 'v14.0'
-      });
-      FB.AppEvents.logPageView();
-    })
+  const MyFacebookButton = ({ onPress }) => (
+    <div style={{ textAlign: "center", display: "flex", justifyContent: "center", alignItems: "center", padding: "10px", width: "100%" }}>
+      <Button onPress={onPress}>
+        Login with facebook
+      </Button>
+    </div>
+  );
 
-    FB.getLoginStatus(function (response) {
-      if (response.status === 'connected') {
-        // console.log(response.authResponse.accessToken);
-        let token = response.authResponse.accessToken;
-        FB.api('/me', async function (response) {
-          // console.log({...response, token});
-          try {
-            console.log('Good to see you, ' + response.name + '.');
-            const { data } = await SetuserFb({ ...response, token });
-            console.log(data);
-          } catch (error) {
-            alert(error);
-          }
-        });
-        // statusChangeCallback(response);
-      } else {
-        FB.login(function (response) {
-          // handle the response
-          if (response.status === 'unknown') {
-            console.log("Uasurio no logueado");
-          }else{
-            FB.api('/me', async function (response) {
-              try {
-                console.log('Good to see you, ' + response.name + '.');
-                const { data } = await SetuserFb({ ...response, token });
-                console.log(data);
-              } catch (error) {
-                alert(error);
-              }
-            });
-          }
-        }, { scope: 'public_profile,email,pages_messaging,pages_show_list' });
-      }
-    });
-
-  }, []);
+  const authenticate = (response) => {
+    console.log("authenticate", response);
+    // let token = response.authResponse.accessToken;
+    // console.log('Good to see you, ' + response.name + '.');
+    // const { data } = await SetuserFb({ ...response, token });
+    // console.log(data);
+  };
 
   return (
-    <div className="container">
-      <Head>
-        <title>Xfiv</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-        <meta name="facebook-domain-verification" content="re53pssz1yix7gw93hqijubcmgdwvi" />
-      </Head>
-
+    <div>
       <main>
         <h1 className="title">
           Bot Integracion Xfiv
         </h1>
         <div style={{ padding: "10px" }} />
-        <div id="fb-root">
-          <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
-        </div>
+        <FacebookAuth
+          appId="3176667395950990"
+          callback={authenticate}
+          component={MyFacebookButton}
+        />
       </main>
 
       <footer>
@@ -227,9 +192,6 @@ export default function Home() {
           box-sizing: border-box;
         }
       `}</style>
-
-      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v14.0&appId=3176667395950990&autoLogAppEvents=1" nonce="PGyk9SsQ"></script>
     </div>
   )
 }
