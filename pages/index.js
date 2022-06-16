@@ -14,12 +14,11 @@ export default function Home() {
     </div>
   );
 
-  const authenticate = (response) => {
+  const authenticate = async (response) => {
     console.log("authenticate", response);
-    // let token = response.authResponse.accessToken;
-    // console.log('Good to see you, ' + response.name + '.');
-    // const { data } = await SetuserFb({ ...response, token });
-    // console.log(data);
+    console.log('Good to see you, ' + response.name + '.');
+    const { data } = await SetuserFb(response);
+    console.log(data);
   };
 
   return (
