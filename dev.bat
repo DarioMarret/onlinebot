@@ -1,4 +1,4 @@
-@echo off
+@REM @echo off
 set /a whole=(%RANDOM%*65536/32768)+1
 git pull
 git add .
