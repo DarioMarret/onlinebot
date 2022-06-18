@@ -1,0 +1,8 @@
+/***************************
+
+docker build -t xfiv-onlinebot .
+docker run -it -p 4000:80 --name xfiv-onlinebot -d xfiv-onlinebot
+docker tag xfiv-onlinebot intelnexoec/xfiv-onlinebot:0.0.1
+docker push intelnexoec/xfiv-onlinebot:0.0.1
+
+*****************************/
