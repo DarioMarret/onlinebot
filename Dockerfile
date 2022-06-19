@@ -7,6 +7,7 @@ WORKDIR /usr/src
 # copy source files
 COPY . /usr/src
 
+RUN npm install -g npm@latest
 # install dependencies
 RUN npm install
 

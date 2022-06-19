@@ -1,4 +1,4 @@
-@REM @echo off
+@echo off
 set /a whole=(%RANDOM%*65536/32768)+1
 git pull
 git add .
@@ -7,8 +7,8 @@ git commit -m "%cometario%"
 git push
 echo Conetarminado:  %cometario%
 
-docker build -t name-image .
-docker tag name-image intelnexoec/name-image:%whole%
-docker push intelnexoec/name-image:%whole%
+@REM docker build -t xfiv-onlinebot .
+@REM docker tag xfiv-onlinebot intelnexoec/xfiv-onlinebot:dev_%whole%
+@REM docker push intelnexoec/xfiv-onlinebot:dev_%whole%
 
-echo tag: dev_%whole%
+@REM echo tag: dev_%whole%
