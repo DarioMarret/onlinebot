@@ -6,13 +6,6 @@ import { SetuserFb } from '../function/ConfigUserFb';
 import FacebookLogin from 'react-facebook-login';
 
 export default function Home() {
-  const [Loadging, setLoadging] = useState(false);
-
-  const MyFacebookButton = () => (
-     setLoadging(!Loadging)
-  );
-
-
   const authenticate = async (response) => {
     console.log("authenticate", response);
     console.log('Good to see you, ' + response.name + '.');
@@ -32,9 +25,9 @@ export default function Home() {
       <FacebookLogin
         appId="3176667395950990"
         autoLoad={false}
-        fields="name,email,picture"
-        scope="public_profile,pages_messaging,pages_user_gender,pages_show_list"
-        version='14.0'
+        // fields="name,email,picture"
+        // scope="public_profile,pages_messaging,pages_user_gender,pages_show_list"
+        // version='14.0'
         textButton="Login with Facebook"
         icon="fa-facebook"
         callback={authenticate} 
