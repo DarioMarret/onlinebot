@@ -6,15 +6,12 @@ import { SetuserFb } from '../function/ConfigUserFb';
 import FacebookLogin from 'react-facebook-login';
 
 export default function Home() {
+  const [Loadging, setLoadging] = useState(false);
 
-  const MyFacebookButton = (onClick) => (
-    console.log("onclick", onClick),
-    <div style={{ textAlign: "center", display: "flex", justifyContent: "center", alignItems: "center", padding: "10px", width: "100%" }}>
-      <Button onPress={onClick}>
-        Login with facebook
-      </Button>
-    </div>
+  const MyFacebookButton = () => (
+     setLoadging(!Loadging)
   );
+
 
   const authenticate = async (response) => {
     console.log("authenticate", response);
@@ -38,10 +35,10 @@ export default function Home() {
         fields="name,email,picture"
         scope="public_profile,pages_messaging,pages_user_gender,pages_show_list"
         version='14.0'
-        textButton="Login con FB"
+        textButton="Login with Facebook"
         icon="fa-facebook"
-        onClick={MyFacebookButton}
-        callback={authenticate} />,
+        callback={authenticate} 
+        />,
     </div>
 
   )
