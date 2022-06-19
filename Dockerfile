@@ -1,11 +1,10 @@
-FROM node:16.14.0
+FROM node:alpine
 
 # create & set working directory
-RUN mkdir -p /usr/src
-WORKDIR /usr/src
+WORKDIR /onlinebot
 
 # copy source files
-COPY . /usr/src
+COPY . .
 
 RUN npm install -g npm@latest
 # install dependencies
@@ -14,4 +13,4 @@ RUN npm install
 # start app
 RUN npm run build
 EXPOSE 3000
-CMD npm run start
+CMD ["npm" "run" "tart"]

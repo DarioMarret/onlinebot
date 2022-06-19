@@ -7,8 +7,8 @@ git commit -m "%cometario%"
 git push
 echo Conetarminado:  %cometario%
 
-docker build -t xfiv-onlinebot .
-docker tag xfiv-onlinebot intelnexoec/xfiv-onlinebot:dev_%whole%
-docker push intelnexoec/xfiv-onlinebot:dev_%whole%
+@REM docker build -t xfiv-onlinebot .
+@REM docker tag xfiv-onlinebot intelnexoec/xfiv-onlinebot:dev_%whole%
+@REM docker push intelnexoec/xfiv-onlinebot:dev_%whole%
 
-echo tag: dev_%whole%
+@REM echo tag: dev_%whole%

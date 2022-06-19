@@ -1,0 +1,10 @@
+.gitmodules
+.git
+.gitignore
+.dockerignore
+Dockerfile
+README.md
+up.bat
+node_modules
+dev.bat
+docker.txt
