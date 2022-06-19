@@ -26,7 +26,7 @@ export default function Home() {
         appId="3176667395950990"
         autoLoad={false}
         // fields="name,email,picture"
-        // scope="public_profile,pages_messaging,pages_user_gender,pages_show_list"
+        scope="public_profile,pages_messaging,pages_user_gender,pages_show_list"
         // version='14.0'
         textButton="Login with Facebook"
         icon="fa-facebook"
