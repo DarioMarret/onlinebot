@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start"
   },
   "dependencies": {
@@ -11,7 +11,6 @@
     "next": "latest",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-facebook-auth": "^1.4.0",
-    "react-facebook-login": "^4.1.1"
+    "react-facebook-auth": "^1.4.0"
   }
 }
