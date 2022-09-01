@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, useModal, Button, Text, Input, Row, Checkbox } from "@nextui-org/react";
 
-import { SetuserFb } from '../function/ConfigUserFb';
+// import { SetuserFb } from '../function/ConfigUserFb';
 import FacebookAuth from 'react-facebook-auth';
-import Swal from 'sweetalert2/src/sweetalert2.js'
+// import Swal from 'sweetalert2/src/sweetalert2.js'
 
 export default function Home() {
 
