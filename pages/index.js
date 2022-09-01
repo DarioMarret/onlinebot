@@ -3,6 +3,7 @@ import { Modal, useModal, Button, Text, Input, Row, Checkbox } from "@nextui-org
 
 import { SetuserFb } from '../function/ConfigUserFb';
 import FacebookAuth from 'react-facebook-auth';
+import Swal from 'sweetalert2/src/sweetalert2.js'
 
 export default function Home() {
 
@@ -17,8 +18,21 @@ export default function Home() {
   const authenticate = async (response) => {
     console.log("authenticate", response);
     console.log('Good to see you, ' + response.name + '.');
-    const { data } = await SetuserFb(response);
-    console.log(data);
+    if (response.accessToken) {
+      const data = {
+        "accessToken": response.accessToken,
+        "userId": response.userID,
+        "name": response.name,
+        "email": response.email,
+        "picture": response.picture.data.url
+      }
+      console.log(data)
+      // const res = await SetuserFb(data);
+      // console.log("res", res);
+    }
+
+    // const { data } = await SetuserFb(response);
+    // console.log(data);
   };
 
   return (

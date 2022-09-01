@@ -1,6 +1,8 @@
 import { NextUIProvider } from '@nextui-org/react';
 import Head from 'next/dist/shared/lib/head'; "next/head";
+
 function MyApp({ Component, pageProps }) {
+    
     return (
         <div className="container">
             <Head>
