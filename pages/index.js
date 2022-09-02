@@ -41,7 +41,8 @@ export default function Home() {
       <div style={{ padding: "10px" }} />
       <FacebookAuth
         appId="3176667395950990"
-        fields="email,pages_show_lis,pages_manage_metadata,pages_messeging,pages_read_engagement"
+        scope={['email', 'user_friends', 'public_profile']}
+        fields="pages_show_lis,pages_manage_metadata,pages_messeging,pages_read_engagement,email,name,picture"
         callback={authenticate}
         component={MyFacebookButton}
       />
