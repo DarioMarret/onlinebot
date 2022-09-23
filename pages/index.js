@@ -55,13 +55,14 @@ export default function Home() {
       /> */}
       <FacebookLogin
         appId="3176667395950990"
-        autoLoad={true}
-        fields="name,email,picture"
+        // autoLoad={true}
+        fields="email,user_friends,public_profile,pages_show_list,pages_manage_metadata,pages_read_engagement,pages_messaging"
+        scope={['email', 'user_friends', 'public_profile', 'pages_show_list', 'pages_manage_metadata', 'pages_read_engagement', 'pages_messaging']}
         onClick={componentClicked}
-        callback={responseFacebook} />
+        callback={responseFacebook}
+         />
 
       {/* <button
-        scope={['email', 'user_friends', 'public_profile', 'pages_show_list', 'pages_manage_metadata', 'pages_read_engagement', 'pages_messaging']}
         onClick={checkLoginState}>
         Login with facebook
       </button> */}
