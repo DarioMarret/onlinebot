@@ -89,11 +89,11 @@ export default function Home() {
         component={MyFacebookButton}
       /> */}
 
-      <fb:login-button
+      <button
         scope={['email', 'user_friends', 'public_profile', 'pages_show_list', 'pages_manage_metadata', 'pages_read_engagement', 'pages_messaging']}
         onClick={checkLoginState}>
         Login with facebook
-      </fb:login-button>
+      </button>
 
       <div id="status">
       </div>
