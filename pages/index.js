@@ -72,7 +72,8 @@ export default function Home() {
         cookie: true,
         xfbml: true,
         version: 'v14.0'
-      });
+      })
+      FB.AppEvents.logPageView(); 
     }
   }, []);
 
