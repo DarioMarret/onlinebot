@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Modal, useModal, Button, Text, Input, Row, Checkbox } from "@nextui-org/react";
 
 // import { SetuserFb } from '../function/ConfigUserFb';
-import FacebookAuth from 'react-facebook-auth';
+// import FacebookAuth from 'react-facebook-auth';
+import FacebookLogin from 'react-facebook-login';
+
 // import Swal from 'sweetalert2/src/sweetalert2.js'
 
 export default function Home() {
@@ -35,55 +37,10 @@ export default function Home() {
     // console.log(data);
   }
 
-  function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
+  const responseFacebook = (response) => {
     console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      testAPI();
-    } else {
-      // The person is not logged into your app or we are unable to tell.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
-    }
   }
-  function checkLoginState() {
-    FB.getLoginStatus(function (response) {
-      statusChangeCallback(response);
-    });
-  }
-
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function (response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    })
-  }
-  useEffect(() => {
-    window.fbAsyncInit = function () {
-      FB.init({
-        appId: '3176667395950990',
-        cookie: true,
-        xfbml: true,
-        version: 'v14.0'
-      })
-      FB.AppEvents.logPageView();
-    }
-
-      (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) { return; }
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-  }, []);
+  const componentClicked = () => console.log('clicked');
 
   return (
     <div style={{ textAlign: "center", paddingTop: "10%" }}>
@@ -96,15 +53,21 @@ export default function Home() {
         callback={authenticate}
         component={MyFacebookButton}
       /> */}
+      <FacebookLogin
+        appId="3176667395950990"
+        autoLoad={true}
+        fields="name,email,picture"
+        onClick={componentClicked}
+        callback={responseFacebook} />
 
-      <button
+      {/* <button
         scope={['email', 'user_friends', 'public_profile', 'pages_show_list', 'pages_manage_metadata', 'pages_read_engagement', 'pages_messaging']}
         onClick={checkLoginState}>
         Login with facebook
-      </button>
+      </button> */}
 
-      <div id="status">
-      </div>
+      {/* <div id="status">
+      </div> */}
     </div>
   )
 }
