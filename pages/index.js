@@ -56,7 +56,7 @@ export default function Home() {
       <FacebookLogin
         appId="3176667395950990"
         // autoLoad={true}
-        fields="email,user_friends,public_profile,pages_show_list,pages_manage_metadata,pages_read_engagement,pages_messaging"
+        fields="email,public_profile,pages_show_list,pages_manage_metadata,pages_read_engagement,pages_messaging"
         scope={['email', 'user_friends', 'public_profile', 'pages_show_list', 'pages_manage_metadata', 'pages_read_engagement', 'pages_messaging']}
         onClick={componentClicked}
         callback={responseFacebook}
