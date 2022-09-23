@@ -34,6 +34,7 @@ export default function Home() {
     // const { data } = await SetuserFb(response);
     // console.log(data);
   }
+
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -70,7 +71,7 @@ export default function Home() {
         appId: '3176667395950990',
         cookie: true,
         xfbml: true,
-        version: '14.0'
+        version: 'v14.0'
       });
     }
   }, []);
@@ -90,6 +91,7 @@ export default function Home() {
       <button
         scope={['email', 'user_friends', 'public_profile', 'pages_show_list', 'pages_manage_metadata', 'pages_read_engagement', 'pages_messaging']}
         onClick={checkLoginState}>
+        Login with facebook
       </button>
 
       <div id="status">
