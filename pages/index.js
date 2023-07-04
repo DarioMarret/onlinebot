@@ -9,7 +9,7 @@ import {
   Checkbox,
 } from "@nextui-org/react";
 
-// import { SetuserFb } from '../function/ConfigUserFb';
+import { SetuserFb } from '../function/ConfigUserFb';
 import FacebookLogin from "@greatsumini/react-facebook-login";
 
 
@@ -64,8 +64,15 @@ export default function Home() {
         // autoLoad={true}
         fields="email,name,picture"
         scope="email,public_profile,pages_show_list,pages_manage_metadata,pages_read_engagement,pages_messaging"
-        onClick={componentClicked}
-        callback={responseFacebook}
+        onSuccess={(response) => {
+          console.log('Login Success!', response);
+        }}
+        onFail={(error) => {
+          console.log('Login Failed!', error);
+        }}
+        onProfileSuccess={(response) => {
+          console.log('Get Profile Success!', response);
+        }}
         style={{
           backgroundColor: "#4267b2",
           color: "#fff",
