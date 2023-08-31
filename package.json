@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start"
   },
+  "homepage": "/chat/",
   "dependencies": {
     "@greatsumini/react-facebook-login": "^3.3.3",
     "@nextui-org/react": "^1.0.0-beta.9",
