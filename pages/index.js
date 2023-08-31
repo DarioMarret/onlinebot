@@ -4,6 +4,7 @@ import {
 import React from "react";
 
 import FacebookLogin from "@greatsumini/react-facebook-login";
+import { SetuserFb } from "../function/ConfigUserFb";
 
 
 export default function Home() {
