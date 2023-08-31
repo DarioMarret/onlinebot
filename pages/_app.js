@@ -1,5 +1,6 @@
 import { NextUIProvider } from '@nextui-org/react';
-import Head from 'next/dist/shared/lib/head'; "next/head";
+import Head from 'next/dist/shared/lib/head';
+"next/head";
 
 function MyApp({ Component, pageProps }) {
     
@@ -16,7 +17,7 @@ function MyApp({ Component, pageProps }) {
             </NextUIProvider>
             
             <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v14.0&appId=3176667395950990&autoLogAppEvents=1" nonce="PGyk9SsQ"></script>
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v14.0&appId=549044906606678&autoLogAppEvents=1" nonce="PGyk9SsQ"></script>
         </div>
     );
 }
