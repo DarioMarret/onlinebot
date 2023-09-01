@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
                 chatbox.setAttribute("page_id", "104751728927194")
                 chatbox.setAttribute("attribution", "biz_inbox")
                 window.fbAsyncInit = function() { 
-                FB.init({ xfbml : true, version : '17' })
+                FB.init({ xfbml : true, version : '14' })
                 } 
                 (function(d, s, id) { 
                 var js, fjs = d.getElementsByTagName(s)[0]
