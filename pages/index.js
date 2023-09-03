@@ -4,6 +4,7 @@ import {
 import React from "react";
 
 import FacebookLogin from "@greatsumini/react-facebook-login";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 import { SetuserFb } from "../function/ConfigUserFb";
 
 
@@ -51,8 +52,10 @@ export default function Home() {
           cursor: "pointer",
         }}
       />
-      <div id="fb-root"></div>
-      <div id="fb-customer-chat" class="fb-customerchat"></div>
+      <MessengerCustomerChat
+        pageId="104751728927194"
+        appId="549044906606678"
+      />
     </div>
   )
 }
