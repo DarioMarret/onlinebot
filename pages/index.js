@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div style={{ textAlign: "center", paddingTop: "10%" }}>
       <Text h1 weight="bold">
-        Bot Integracion BMCodigoMarret
+        Bot Integracion FlashChat
       </Text>
       <div style={{ padding: "10px" }} />
       <FacebookLogin
@@ -45,7 +45,7 @@ export default function Home() {
           border: "none",
           borderRadius: "4px",
           cursor: "pointer",
-          width: "100%",
+          // width: "100%",
           marginTop: "15px",
         }}
       />
