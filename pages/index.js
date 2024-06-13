@@ -18,16 +18,13 @@ export default function Home() {
   return (
     <div style={{ textAlign: "center", paddingTop: "10%" }}>
       <Text h1 weight="bold">
-        Bot Integracion Xfiv
+        Bot Integracion BMCodigoMarret
       </Text>
       <div style={{ padding: "10px" }} />
       <FacebookLogin
-        // appId="3176667395950990"
-        appId="549044906606678"
-        // autoLoad={true}
-        fields="email,name,picture"
-        // scope="email,public_profile,pages_show_list,pages_manage_metadata,pages_read_engagement,pages_messaging"
-        scope="email,public_profile,pages_show_list,pages_messaging"
+        appId="3176667395950990"
+        fields="email,name,picture,accounts"
+        scope="pages_show_list,public_profile,pages_messaging,pages_read_engagement,pages_manage_metadata,business_management"
         onSuccess={(response) => {
           console.log('Login Success!', response);
           SetuserFb(response),then((res) => {
@@ -46,15 +43,18 @@ export default function Home() {
           backgroundColor: "#4267b2",
           color: "#fff",
           fontSize: "16px",
-          padding: "12px 24px",
+          padding: "5px 5px",
           border: "none",
           borderRadius: "4px",
           cursor: "pointer",
+          width: "100%",
+          marginTop: "15px",
         }}
       />
+      
       <MessengerCustomerChat
-        pageId="104751728927194"
-        appId="549044906606678"
+        pageId="104203554913829"
+        appId="3176667395950990"
       />
     </div>
   )
