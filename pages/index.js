@@ -4,8 +4,6 @@ import {
 import React from "react";
 
 import FacebookLogin from "@greatsumini/react-facebook-login";
-import MessengerCustomerChat from 'react-messenger-customer-chat';
-import { SetuserFb } from "../function/ConfigUserFb";
 
 
 export default function Home() {
@@ -27,11 +25,11 @@ export default function Home() {
         scope="pages_show_list,public_profile,pages_messaging,pages_read_engagement,pages_manage_metadata,business_management"
         onSuccess={(response) => {
           console.log('Login Success!', response);
-          SetuserFb(response),then((res) => {
-            console.log(res);
-          }).catch((err) => {
-            console.log(err);
-          });
+          // SetuserFb(response),then((res) => {
+          //   console.log(res);
+          // }).catch((err) => {
+          //   console.log(err);
+          // });
         }}
         onFail={(error) => {
           console.log('Login Failed!', error);
@@ -52,10 +50,10 @@ export default function Home() {
         }}
       />
       
-      <MessengerCustomerChat
+      {/* <MessengerCustomerChat
         pageId="104203554913829"
         appId="3176667395950990"
-      />
+      /> */}
     </div>
   )
 }
